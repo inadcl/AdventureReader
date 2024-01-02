@@ -1,0 +1,17 @@
+id,avatar,fondo,activarsonidobackground,sonidobackground,activarEvento,evento,nivel
+1,cartero.png,casa1.png,TRUE,start.mp3,FALSE,,1
+2,prota2.png,casa1.png,FALSE,,FALSE,,1
+3,cartero.png,casa1.png,FALSE,,FALSE,,1
+4,prota.png,casa1.png,FALSE,,FALSE,,1
+5,cartero.png,casa1.png,FALSE,,FALSE,,1
+6,prota2.png,casa2.png,FALSE,,FALSE,,1
+7,cartero.png,casa3.png,FALSE,,FALSE,,1
+8,prota.png,casa1.png,FALSE,,FALSE,,1
+9,cartero.png,carta1.png,FALSE,,FALSE,,1
+10,narrador.png,tiempo.png,TRUE,narrador.mp3,FALSE,,1
+11,narrador.png,tiempo.png,FALSE,,FALSE,,1
+12,narrador.png,tiempo.png,FALSE,,FALSE,,1
+13,narrador.png,tiempo.png,FALSE,,FALSE,,1
+14,prota.png,carta2.png,TRUE,start.mp3,FALSE,,1
+15,prota.png,carta2.png,FALSE,,FALSE,,1
+16,prota.png,carta2.png,FALSE,,FALSE,,1

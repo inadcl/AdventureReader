@@ -1,0 +1,17 @@
+[remap]
+
+importer="csv_translation"
+type="Translation"
+uid="uid://1la605f1j0a0"
+
+[deps]
+
+files=["res://GameSources/action_dialog.id.translation", "res://GameSources/action_dialog.tipo.translation", "res://GameSources/action_dialog.accionSiguiente.translation", "res://GameSources/action_dialog.level.translation", "res://GameSources/action_dialog.sonido.translation"]
+
+source_file="res://GameSources/action_dialog.csv"
+dest_files=["res://GameSources/action_dialog.id.translation", "res://GameSources/action_dialog.tipo.translation", "res://GameSources/action_dialog.accionSiguiente.translation", "res://GameSources/action_dialog.level.translation", "res://GameSources/action_dialog.sonido.translation"]
+
+[params]
+
+compress=true
+delimiter=0

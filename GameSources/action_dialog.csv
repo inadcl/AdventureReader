@@ -1,0 +1,17 @@
+id_action,id_dialogo,tipo,accionSiguiente,level,sonido
+1,1,Oracion,,1,toctoc.mp3
+2,2,Oracion,,1,02prota.mp3
+3,3,Oracion,,1,toctoc.mp3
+4,4,Oracion,,1,04prota.mp3
+5,5,Oracion,,1,toctoc.mp3
+6,6,Oracion,,1,06prota.mp3
+7,7,Oracion,,1,toctoc.mp3
+8,8,Oracion,,1,08prota.mp3
+9,9,Oracion,,1,09cartero.mp3
+10,10,Oracion,,1,10narrador.mp3
+11,11,Oracion,,1,11narrador.mp3
+12,12,Oracion,,1,12narrador.mp3
+13,13,Oracion,,1,13narrador.mp3
+14,14,Oracion,,1,14prota.mp3
+15,15,Oracion,,1,15prota.mp3
+16,16,Oracion,,1,16prota.mp3

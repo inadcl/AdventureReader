@@ -1,0 +1,17 @@
+[remap]
+
+importer="csv_translation"
+type="Translation"
+uid="uid://cqpio4xwi5iry"
+
+[deps]
+
+files=["res://GameSources/actions.avatar.translation", "res://GameSources/actions.fondo.translation", "res://GameSources/actions.activarsonidobackground.translation", "res://GameSources/actions.sonidobackground.translation", "res://GameSources/actions.activarEvento.translation", "res://GameSources/actions.evento.translation", "res://GameSources/actions.nivel.translation"]
+
+source_file="res://GameSources/actions.csv"
+dest_files=["res://GameSources/actions.avatar.translation", "res://GameSources/actions.fondo.translation", "res://GameSources/actions.activarsonidobackground.translation", "res://GameSources/actions.sonidobackground.translation", "res://GameSources/actions.activarEvento.translation", "res://GameSources/actions.evento.translation", "res://GameSources/actions.nivel.translation"]
+
+[params]
+
+compress=true
+delimiter=0

@@ -1,0 +1,17 @@
+[remap]
+
+importer="csv_translation"
+type="Translation"
+uid="uid://j46s181n3qj2"
+
+[deps]
+
+files=["res://GameSources/dialogs_es.texto.translation", "res://GameSources/dialogs_es.nivel.translation"]
+
+source_file="res://GameSources/dialogs_es.csv"
+dest_files=["res://GameSources/dialogs_es.texto.translation", "res://GameSources/dialogs_es.nivel.translation"]
+
+[params]
+
+compress=true
+delimiter=0

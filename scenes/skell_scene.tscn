@@ -1,0 +1,66 @@
+[gd_scene load_steps=5 format=3 uid="uid://b642lrj8xlwhm"]
+
+[ext_resource type="Texture2D" uid="uid://btbg81vx0egs8" path="res://images/menu/menu3.png" id="2_el25q"]
+[ext_resource type="Texture2D" uid="uid://dvkdkesak2nsb" path="res://images/avatars/prota2.png" id="3_1owjf"]
+[ext_resource type="Script" path="res://scenes/SceneButton.gd" id="4_71gq1"]
+[ext_resource type="Texture2D" uid="uid://n1pg4isdefg6" path="res://images/ui/lupa.png" id="4_qf62w"]
+
+[node name="SkellScene" type="Node2D"]
+scale = Vector2(0.768, 0.768)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+scale = Vector2(0.768, 0.768)
+transform = Transform2D(0.768, 0, 0, 0.768, 0, 0)
+
+[node name="BackgroundTextureRect" type="TextureRect" parent="CanvasLayer"]
+offset_left = 0.768
+offset_top = 0.768
+offset_right = 1024.77
+offset_bottom = 1024.77
+texture = ExtResource("2_el25q")
+
+[node name="ControlsPanel" type="Panel" parent="CanvasLayer"]
+offset_left = -1.0
+offset_top = 751.0
+offset_right = 1027.0
+offset_bottom = 1027.0
+
+[node name="CharacterTextureRect" type="TextureRect" parent="CanvasLayer/ControlsPanel"]
+layout_mode = 0
+offset_right = 1024.0
+offset_bottom = 1024.0
+scale = Vector2(0.27, 0.27)
+texture = ExtResource("3_1owjf")
+
+[node name="CharacterRichText" type="RichTextLabel" parent="CanvasLayer/ControlsPanel"]
+layout_mode = 0
+offset_left = 300.0
+offset_top = 34.0
+offset_right = 1001.0
+offset_bottom = 222.0
+text = "test"
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer"]
+offset_left = 937.0
+offset_top = 954.0
+offset_right = 1961.0
+offset_bottom = 1978.0
+scale = Vector2(0.05, 0.05)
+texture = ExtResource("4_qf62w")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="CanvasLayer"]
+volume_db = -18.383
+autoplay = true
+
+[node name="AudioVoice" type="AudioStreamPlayer" parent="CanvasLayer"]
+
+[node name="SceneButton" type="Button" parent="CanvasLayer"]
+modulate = Color(1, 1, 1, 0)
+top_level = true
+offset_left = -3.0
+offset_top = 8.0
+offset_right = 1029.0
+offset_bottom = 1027.0
+script = ExtResource("4_71gq1")
+
+[connection signal="button_up" from="CanvasLayer/SceneButton" to="CanvasLayer/SceneButton" method="_on_button_up"]
