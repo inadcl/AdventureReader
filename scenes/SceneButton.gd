@@ -13,3 +13,7 @@ func _process(delta):
 
 func _on_button_up():
 	SceneManager._on_button_down()
+
+
+func _on_mouse_controller_timer_timeout():
+	SceneManager.buttonTimeout()

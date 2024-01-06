@@ -9,9 +9,21 @@ var listOfActions = []
 func _ready():
 	pass
 	
-
-func next_step(actualAction: int):
-	listOfActions = RM.loadActionList("level1", "1");
-	var activeAction = listOfActions[actualAction]
-	SceneManager.renderStep(activeAction)
+func mouseTimeout(controller:MouseController):
+	print("desbloqueado")
+	controller._on_arrow_timeout() 
+	
+func mouseHit(controller:MouseController):
+	print("blockear raton")
+	controller.blockMouse()
+	pass
+	
+func next_step(actualAction: int, isActive: bool, hitSound: AudioStreamPlayer2D):
+	if isActive:
+		hitSound.play()
+		listOfActions = RM.loadActionList("level1", "1");
+		var activeAction = listOfActions[actualAction]
+		SceneManager.renderStep(activeAction)
+		return actualAction+1
+	return actualAction
 

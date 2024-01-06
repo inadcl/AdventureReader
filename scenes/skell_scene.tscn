@@ -1,9 +1,11 @@
-[gd_scene load_steps=5 format=3 uid="uid://b642lrj8xlwhm"]
+[gd_scene load_steps=7 format=3 uid="uid://b642lrj8xlwhm"]
 
 [ext_resource type="Texture2D" uid="uid://btbg81vx0egs8" path="res://images/menu/menu3.png" id="2_el25q"]
 [ext_resource type="Texture2D" uid="uid://dvkdkesak2nsb" path="res://images/avatars/prota2.png" id="3_1owjf"]
 [ext_resource type="Script" path="res://scenes/SceneButton.gd" id="4_71gq1"]
 [ext_resource type="Texture2D" uid="uid://n1pg4isdefg6" path="res://images/ui/lupa.png" id="4_qf62w"]
+[ext_resource type="Script" path="res://common/MouseController.gd" id="5_xd5sf"]
+[ext_resource type="AudioStream" uid="uid://ivdyomni5jew" path="res://sounds/effects/hit.wav" id="6_xgib2"]
 
 [node name="SkellScene" type="Node2D"]
 scale = Vector2(0.768, 0.768)
@@ -40,7 +42,12 @@ offset_right = 1001.0
 offset_bottom = 222.0
 text = "test"
 
-[node name="TextureRect" type="TextureRect" parent="CanvasLayer"]
+[node name="MouseControllerTimer" type="Timer" parent="CanvasLayer/ControlsPanel"]
+wait_time = 3.0
+autostart = true
+script = ExtResource("5_xd5sf")
+
+[node name="MouseTextureRect" type="TextureRect" parent="CanvasLayer"]
 offset_left = 937.0
 offset_top = 954.0
 offset_right = 1961.0
@@ -63,4 +70,10 @@ offset_right = 1029.0
 offset_bottom = 1027.0
 script = ExtResource("4_71gq1")
 
+[node name="clickSound" type="AudioStreamPlayer2D" parent="CanvasLayer"]
+stream = ExtResource("6_xgib2")
+volume_db = 10.0
+
+[connection signal="ready" from="CanvasLayer/ControlsPanel/MouseControllerTimer" to="CanvasLayer/ControlsPanel/MouseControllerTimer" method="_on_ready"]
+[connection signal="timeout" from="CanvasLayer/ControlsPanel/MouseControllerTimer" to="CanvasLayer/SceneButton" method="_on_mouse_controller_timer_timeout"]
 [connection signal="button_up" from="CanvasLayer/SceneButton" to="CanvasLayer/SceneButton" method="_on_button_up"]

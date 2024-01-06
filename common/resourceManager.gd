@@ -37,6 +37,7 @@ func loadActionList(levelpath: String, level: String):
 		var fondo = action[1]
 		var hasBackgroundSound = action[2]
 		var backgroundSound = action[3]
+		var event = action[5]
 		var texto = dialog[0]
 		
 		var avatarActionPath = pathAvatars+avatar
@@ -47,7 +48,7 @@ func loadActionList(levelpath: String, level: String):
 			
 		
 		
-		var newAction = Action.new(texto, actionSound, avatarActionPath, fondoActionPath, backgroundSoundPath)
+		var newAction = Action.new(texto, actionSound, avatarActionPath, fondoActionPath, backgroundSoundPath, event)
 		listOfActions[count] = newAction
 		count= count+1
 		
