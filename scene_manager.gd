@@ -6,7 +6,12 @@ var actualScene
 var actualPosition = 0
 var scene_manager_scene = preload("res://scenes/skell_scene.tscn")
 var scene_level_1 = preload("res://scenes/level_1_scene.tscn") 
-
+var scene_level_2 = preload("res://scenes/level_2_scene.tscn") 
+var scene_level_3 = preload("res://scenes/level_3_scene.tscn") 
+#todo Corregir orden
+var scenes_by_order = [scene_level_1, scene_level_2, scene_level_3]
+var actualScenePosition = 0
+	
 var	audioBackgroundSkell
 var	backgroundTextureSkell
 var	characterTextureSkell
@@ -37,7 +42,8 @@ func _ready():
 	print(skellScene)
 	loadResources()
 	mouseDelayInit()
-	cambiar_escena(scene_level_1)
+	#recordar cambiar a escena 1
+	cambiar_escena(scenes_by_order[actualScenePosition])
 
 	
 func mouseDelayInit():
@@ -57,6 +63,11 @@ func cambiar_escena(scene):
 	
 func nextStep(isActive:bool):
 	print(actualPosition)
+	if actualScene.hasEnded(actualPosition):
+		actualPosition=0
+		actualScenePosition = actualScenePosition + 1
+		cambiar_escena(scenes_by_order[actualScenePosition])
+		
 	actualPosition = actualScene.next_step(actualPosition, isActive, audioHitSkell)
 	actualScene.mouseHit(mouseController)	
 		

@@ -18,6 +18,11 @@ func mouseHit(controller:MouseController):
 	controller.blockMouse()
 	pass
 	
+func hasEnded(actualAction:int):
+	if actualAction==0:
+		return false
+	return actualAction == len(listOfActions)
+	
 func next_step(actualAction: int, isActive: bool, hitSound: AudioStreamPlayer2D):
 	if isActive:
 		hitSound.play()

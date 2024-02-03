@@ -18,6 +18,8 @@ func loadActionList(levelpath: String, level: String):
 	var actions = filterLevel(load_csv_data("res://GameSources/actions.csv"), "action", level)
 	var mappedActions = map_csv_to_dict_by_id(actions, "action")
 	var actionDialogs = filterLevel(load_csv_data("res://GameSources/action_dialog.csv"),"action_dialog", level)
+	var actionOptions = filterLevel(load_csv_data("res://GameSources/action_options.csv"),"action_options", level)
+	var mappedActionOptions = map_csv_to_dict_by_id(actionOptions, "action_options")
 	var mappedActionDialogs = map_csv_to_dict_by_id(actionDialogs, "action_dialogs")
 	
 	var dialogs =  filterLevel(load_csv_data("res://GameSources/dialogs_"+activeLang+".csv"), "", level)
@@ -33,11 +35,13 @@ func loadActionList(levelpath: String, level: String):
 		var textId = actionDialog[1] 
 		var action = mappedActions[actionId]
 		var dialog = mappedDialogs[textId]
+		var hasEvent = action[4]
+		var eventname = action[5]
+		var eventOptions = null
 		var avatar = action[0]
 		var fondo = action[1]
 		var hasBackgroundSound = action[2]
 		var backgroundSound = action[3]
-		var event = action[5]
 		var texto = dialog[0]
 		
 		var avatarActionPath = pathAvatars+avatar
@@ -48,14 +52,30 @@ func loadActionList(levelpath: String, level: String):
 			
 		
 		
-		var newAction = Action.new(texto, actionSound, avatarActionPath, fondoActionPath, backgroundSoundPath, event)
+		var newAction = Action.new(texto, actionSound, avatarActionPath, fondoActionPath, backgroundSoundPath, eventname)
 		listOfActions[count] = newAction
 		count= count+1
 		
+	#todo mirar como se recorre el listofactions
+	for position in len(listOfActions):
+		var item = listOfActions[position]
+		if listOfActions[position].hasEvent():
+			var eventOptionsFromCsv = filterActionOptionByEvent(actionOptions, item.eventName, level)
+			var eventOptions:Array
+			for eventItem in eventOptions:
+				if eventOptions[0] == item.eventName:
+					eventOptions.append(EventOption.new(item.eventName, getActionById(listOfActions, eventOptionsFromCsv[1]),
+					getActionById(listOfActions, eventOptionsFromCsv[2]), eventOptionsFromCsv[3], 
+					getActionById(listOfActions, eventOptionsFromCsv[4]), eventOptionsFromCsv[5]))
+			item.setEvent(Event.new(item.eventName, eventOptions))
 	if(len(listOfActions)==0):
 		print("error - no existen acciones")
 	return listOfActions
 	
+func getActionById(actions, id):
+	for action in actions:
+		if action.id == id:
+			return action
 	
 func load_csv_data2(path):
 	var data = []
@@ -112,6 +132,13 @@ func parse_csv_line(line):
 	elements.append(current_element)
 	return elements
 
+func filterActionOptionByEvent(data, event, level):
+	var new_data = []
+	for row in data:
+		if row[5].replace("\r","") == level and row[0] == event:
+			new_data.append([row[0], row[1], row[2], row[3], row[4], row[5].replace("\r","")])
+	return new_data
+
 func filterLevel(data, type, level):
 	var new_data = []
 	for row in data:
@@ -120,6 +147,9 @@ func filterLevel(data, type, level):
 				new_data.append([row[0], row[1], row[2], row[3], row[4], row[5], row[6], row[7].replace("\r","")])
 		elif type == "action_dialog":
 			if row[4].replace("\r","") == level:
+				new_data.append([row[0], row[1], row[2], row[3], row[4], row[5].replace("\r","")])
+		elif type == "action_options":
+			if row[5].replace("\r","") == level:
 				new_data.append([row[0], row[1], row[2], row[3], row[4], row[5].replace("\r","")])
 		else:
 			if row[2].replace("\r","") == level:
@@ -134,6 +164,8 @@ func map_csv_to_dict_by_id(data, type):
 		if type == "action":
 			new_data[row[0]] = [row[1], row[2], row[3], row[4], row[5], row[6], row[7]]
 		elif type == "action_dialog":
+			new_data[row[0]] = [row[1], row[2], row[3], row[4], row[5]]
+		elif type == "action_options":
 			new_data[row[0]] = [row[1], row[2], row[3], row[4], row[5]]
 		else:
 			new_data[row[0]] = [row[1]]

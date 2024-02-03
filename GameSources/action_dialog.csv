@@ -15,3 +15,16 @@ id_action,id_dialogo,tipo,accionSiguiente,level,sonido
 14,14,Oracion,,1,14prota.mp3
 15,15,Oracion,,1,15prota.mp3
 16,16,Oracion,,1,16prota.mp3
+17,17,Oracion,,2,17narrador.mp3
+18,18,Oracion,,2,18narrador.mp3
+19,19,Oracion,,2,19narrador.mp3
+20,20,Oracion,,2,20camarero.mp3
+21,21,Oracion,,2,21narrador.mp3
+22,22,Oracion,,2,22prota.mp3
+23,23,Oracion,,2,23prota.mp3
+24,24,Oracion,,3,24prota.mp3
+25,25,Opcion1,,3,26prota.mp3
+26,26,Opcion2,,3,27prota.mp3
+27,27,Opcion3,,3,28prota.mp3
+28,28,Oracion,,3,25prota.mp3
+29,29,Oracion,,4,29prota.mp3

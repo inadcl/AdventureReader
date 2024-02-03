@@ -48,10 +48,10 @@ autostart = true
 script = ExtResource("5_xd5sf")
 
 [node name="MouseTextureRect" type="TextureRect" parent="CanvasLayer"]
-offset_left = 937.0
-offset_top = 954.0
-offset_right = 1961.0
-offset_bottom = 1978.0
+offset_left = 898.0
+offset_top = 914.0
+offset_right = 2183.0
+offset_bottom = 2035.0
 scale = Vector2(0.05, 0.05)
 texture = ExtResource("4_qf62w")
 
