@@ -7,15 +7,17 @@ var character:= ""
 var backgroundSound := ""
 var eventName:=""
 var event:Event
+var id:int
 
 func _init(_texto: String, _sound : String, _character: String, _background : String, 
-_backgroundSound:String, _eventName:String):
+_backgroundSound:String, _eventName:String, _id:String):
 	texto = _texto
 	sound = _sound
 	character = _character 
 	background = _background
 	backgroundSound =  _backgroundSound
 	eventName = _eventName
+	id = _id.to_int()
 
 func setEvent(_event: Event):
 	event = _event

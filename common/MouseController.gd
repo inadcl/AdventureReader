@@ -8,6 +8,7 @@ var isMouseBlocked = true
 var nodoImage 
 var arrowTexture = preload("res://images/ui/flecha.png")
 var actionTexture = preload("res://images/ui/lupa.png")
+var nextSceneAllowed = true
 
 func _init(nodo):
 	nodoImage=nodo
@@ -41,6 +42,13 @@ func _on_arrow_timeout():
 	setArrowImage()
 	changeArrowVisibilityTo(true)
 	isMouseBlocked = false
+	
+
+func setIsNextSceneAllowed(value: bool):
+	nextSceneAllowed = value
+	
+func isNextSceneAllowed():
+	return nextSceneAllowed
 	
 func _on_ready():
 	print("timer ready")

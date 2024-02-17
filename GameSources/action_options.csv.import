@@ -2,14 +2,14 @@
 
 importer="csv_translation"
 type="Translation"
-uid="uid://b2sx4sg3te3i6"
+uid="uid://dwcdqpwxhgg88"
 
 [deps]
 
-files=["res://GameSources/action_options.id.translation", "res://GameSources/action_options.id.translation", "res://GameSources/action_options.tipo.translation", "res://GameSources/action_options.id.translation", "res://GameSources/action_options.level.translation", "res://GameSources/action_options.img.translation", "res://GameSources/action_options.x.translation", "res://GameSources/action_options.y.translation", "res://GameSources/action_options.scale.translation"]
+files=["res://GameSources/action_options.id.translation", "res://GameSources/action_options.id.translation", "res://GameSources/action_options.tipo.translation", "res://GameSources/action_options.id.translation", "res://GameSources/action_options.level.translation", "res://GameSources/action_options.img.translation", "res://GameSources/action_options.x.translation", "res://GameSources/action_options.y.translation", "res://GameSources/action_options.scale.translation", "res://GameSources/action_options.sizeX.translation", "res://GameSources/action_options.sizeY.translation"]
 
 source_file="res://GameSources/action_options.csv"
-dest_files=["res://GameSources/action_options.id.translation", "res://GameSources/action_options.id.translation", "res://GameSources/action_options.tipo.translation", "res://GameSources/action_options.id.translation", "res://GameSources/action_options.level.translation", "res://GameSources/action_options.img.translation", "res://GameSources/action_options.x.translation", "res://GameSources/action_options.y.translation", "res://GameSources/action_options.scale.translation"]
+dest_files=["res://GameSources/action_options.id.translation", "res://GameSources/action_options.id.translation", "res://GameSources/action_options.tipo.translation", "res://GameSources/action_options.id.translation", "res://GameSources/action_options.level.translation", "res://GameSources/action_options.img.translation", "res://GameSources/action_options.x.translation", "res://GameSources/action_options.y.translation", "res://GameSources/action_options.scale.translation", "res://GameSources/action_options.sizeX.translation", "res://GameSources/action_options.sizeY.translation"]
 
 [params]
 

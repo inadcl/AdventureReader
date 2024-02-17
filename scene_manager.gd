@@ -8,8 +8,10 @@ var scene_manager_scene = preload("res://scenes/skell_scene.tscn")
 var scene_level_1 = preload("res://scenes/level_1_scene.tscn") 
 var scene_level_2 = preload("res://scenes/level_2_scene.tscn") 
 var scene_level_3 = preload("res://scenes/level_3_scene.tscn") 
+var scene_level_4 = preload("res://scenes/level_4_scene.tscn") 
 #todo Corregir orden
-var scenes_by_order = [scene_level_1, scene_level_2, scene_level_3]
+#var scenes_by_order = [scene_level_1, scene_level_2, scene_level_3, scene_level_4]
+var scenes_by_order = [scene_level_4]
 var actualScenePosition = 0
 	
 var	audioBackgroundSkell
@@ -17,6 +19,7 @@ var	backgroundTextureSkell
 var	characterTextureSkell
 var	textSkell
 var	audioVoiceSkell
+var sceneCanvasLayer = null
 
 var last_mouse_position: Vector2 = Vector2()
 var time_since_last_move: float = 0.0
@@ -59,7 +62,30 @@ func cambiar_escena(scene):
 	if actualScene != null:
 		actualScene.queue_free()  
 	actualScene = new_scene  # Establecer la nueva escena como la actual
+	new_scene.init()
 	nextStep(true)
+	
+func addChildFromScene(node):
+	var main_scene_root = get_tree().current_scene
+	print(main_scene_root.name)
+	
+	if sceneCanvasLayer == null:
+		sceneCanvasLayer= main_scene_root.get_node("/root/SkellScene/CanvasLayer")
+		#sceneCanvasLayer = CanvasLayer.new()
+		#sceneCanvasLayer.name= "subSceneLayer"
+		#sceneCanvasLayer.layer = 1
+		#main_scene_root.add_child(sceneCanvasLayer)
+	sceneCanvasLayer.add_child(node)
+	print("Scene canvas:%", node.is_visible_in_tree())
+	
+func removeChildFromScene(node):
+	if sceneCanvasLayer != null:
+		sceneCanvasLayer.remove_child(node)
+	
+func removeCanvasLayer():
+	var main_scene_root = get_tree().current_scene
+	main_scene_root.remove_child(sceneCanvasLayer)
+	sceneCanvasLayer = null
 	
 func nextStep(isActive:bool):
 	print(actualPosition)
@@ -69,8 +95,11 @@ func nextStep(isActive:bool):
 		cambiar_escena(scenes_by_order[actualScenePosition])
 		
 	actualPosition = actualScene.next_step(actualPosition, isActive, audioHitSkell)
-	actualScene.mouseHit(mouseController)	
+	actualScene.mouseHit(mouseController)
 		
+func updateAction(action):
+	renderStep(action)
+	
 
 func buttonTimeout():
 	actualScene.mouseTimeout(mouseController)
@@ -103,7 +132,8 @@ func play_audio(media, audio_path):
 
 func _on_button_down():
 	print("click1")
-	nextStep(mouseController.isMouseActive())
+	if (mouseController.isNextSceneAllowed()):
+		nextStep(mouseController.isMouseActive())
 #
 #func _on_button_up():
 	#var node = get_node("ImagenAmpliada")

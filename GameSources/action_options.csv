@@ -1,4 +1,4 @@
-name_action,id_action,id_next_action,tipo,id_action_opcion,level,img,x,y,scale
-mostrarbusqueda,24,28,required_button,25,3,starwarsposter.webp,298,330,0.05
-mostrarbusqueda,24,28,required_button,26,3,taza2.webp,547,436,0.02
-mostrarbusqueda,24,28,required_button,27,3,trofeo.webp,710,401,0.06
+name_action,id_action,id_next_action,tipo,id_action_opcion,level,img,x,y,scale,sizeX,sizeY
+mostrarbusqueda,24,28,required_button,25,3,starwarsposter.webp,183,445,0.05,64,64
+mostrarbusqueda,24,28,required_button,27,3,taza2.webp,567,576,0.05,64,64
+mostrarbusqueda,24,28,required_button,26,3,trofeo.webp,785,456,0.06,64,64
